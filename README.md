@@ -18,11 +18,11 @@ El propósito del proyecto es mostrar una implementación sencilla del juego usa
 
 ## Contenido del proyecto
 
-Proyecto-final/
-├── piedra_papel_tijera.py
-├── diagrama_raptor.rap
-└── README.md
+piedra_papel_tijera.py
 
+diagrama_raptor.rap
+
+Diagramas de flujo explicativos
 
 
 # Versión en Python
