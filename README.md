@@ -33,7 +33,7 @@ Luego se muestra quién gana o si hay empate.
 
 ### Cómo ejecutarlo
 
-python3 piedra_papel_tijera.py
+python3 Game.py o python Game.py (por si da error uno)
 
 # Versión en RAPTOR
 
