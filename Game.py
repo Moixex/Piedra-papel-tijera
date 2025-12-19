@@ -46,7 +46,7 @@ def iniciar_juego():
 
         # Opción para terminar el juego
         if usuario == "salir":
-            print("\nGracias por jugar. La tecnología también sabe cuándo detenerse.")
+            print("\nGracias por jugar. ¡Hasta luego!.")
             break
 
         # Validación de la entrada del usuario
@@ -67,3 +67,4 @@ def iniciar_juego():
 
 # Llamada a la función principal para iniciar el programa
 iniciar_juego()
+
