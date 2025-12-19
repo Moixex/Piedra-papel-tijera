@@ -1,41 +1,69 @@
-import random
+import random  # Se importa random para que la computadora elija al azar
 
-print("=== Juego: Piedra, Papel o Tijera ===")
+# Función que muestra un mensaje de bienvenida al iniciar el juego
+def mostrar_introduccion():
+    print("======================================")
+    print(" Juego: Piedra, Papel o Tijera ")
+    print(" Simulación de decisiones automatizadas")
+    print(" Impacto de la tecnología en el entretenimiento")
+    print("======================================")
 
-# Lista de opciones permitidas
-opciones = ["piedra", "papel", "tijera"]
+# Función que pide al usuario su elección
+def obtener_jugada_usuario():
+    # Se convierte a minúsculas para evitar errores al escribir
+    return input("\nElige piedra, papel o tijera (o escribe 'salir'): ").lower()
 
-# Bucle repetitivo: el juego continúa hasta que el usuario decida salir
-while True:
-    # Solicitar jugada al usuario
-    usuario = input("\nElige piedra, papel o tijera (o escribe 'salir'): ").lower()
+# Función que genera la jugada de la computadora
+def obtener_jugada_computadora(opciones):
+    # La computadora elige una opción de forma aleatoria
+    return random.choice(opciones)
 
-    # Punto lógico: condición de salida del juego
-    if usuario == "salir":
-        print("Saliendo del juego...")
-        break  # rompe el bucle
-
-    # Validar entrada del usuario
-    if usuario not in opciones:
-        print("Entrada no válida. Intenta de nuevo.")
-        continue  # vuelve al inicio del while
-
-    # La computadora elige aleatoriamente
-    computadora = random.choice(opciones)
-
-    print("Tú elegiste:", usuario)
-    print("La computadora eligió:", computadora)
-
-    # --- LÓGICA DEL GANADOR ---
-    # Esta estructura compara todas las posibilidades.
-    # Usamos condiciones compuestas para determinar qué opción vence a cuál.
+# Función que decide quién gana
+def determinar_ganador(usuario, computadora):
+    # Si ambos eligen lo mismo, es empate
     if usuario == computadora:
-        print("Resultado: Empate")
+        return "Empate"
+    # Condiciones donde el usuario gana
     elif (usuario == "piedra" and computadora == "tijera") or \
          (usuario == "tijera" and computadora == "papel") or \
          (usuario == "papel" and computadora == "piedra"):
-        print("Resultado: ¡Ganaste!")
+        return "¡Ganaste!"
+    # En cualquier otro caso, gana la computadora
     else:
-        print("Resultado: Perdiste")
+        return "Perdiste"
 
-print("Juego finalizado.")
+# Función principal que controla el flujo del juego
+def iniciar_juego():
+    # Lista con las opciones válidas del juego
+    opciones = ["piedra", "papel", "tijera"]
+    
+    # Se muestra la introducción del juego
+    mostrar_introduccion()
+
+    # El juego se repite hasta que el usuario decida salir
+    while True:
+        usuario = obtener_jugada_usuario()
+
+        # Opción para terminar el juego
+        if usuario == "salir":
+            print("\nGracias por jugar. La tecnología también sabe cuándo detenerse.")
+            break
+
+        # Validación de la entrada del usuario
+        if usuario not in opciones:
+            print("Entrada no válida. Intenta de nuevo.")
+            continue
+
+        # La computadora realiza su jugada
+        computadora = obtener_jugada_computadora(opciones)
+
+        # Se muestran las elecciones
+        print("Tú elegiste:", usuario)
+        print("La computadora eligió:", computadora)
+
+        # Se determina y muestra el resultado
+        resultado = determinar_ganador(usuario, computadora)
+        print("Resultado:", resultado)
+
+# Llamada a la función principal para iniciar el programa
+iniciar_juego()
